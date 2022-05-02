@@ -1,27 +1,31 @@
 public class Sorting {
     int[] array = {4, 3, 5, 6, 1, 2};
-    int[] temp = new int[array.length];
+    boolean flag = false;
 
     public static void main(String[] args) {
         Sorting s = new Sorting();
-        s.method();
+        s.method(s.array, s.flag);
     }
 
-    void method() {
-        for (int i = 0; i <= array.length - 1; i++) {
-            for (int j = i + 1; j <= array.length - 1; j++) {
-                int temp=0;
-                if (array[i] > array[j]) {
-                    temp = array[i];
-                    array[i] = array[j];
-                    array[j] = temp;
-                    break;
+    void method(int[] getArray, boolean flag) {
+        for (int i = 0; i <= getArray.length - 1; i++) {
+            for (int j = i + 1; j <= getArray.length - 1; j++) {
+                int temp = 0;
+                if (getArray[i] > getArray[j]) {
+                    temp = getArray[i];
+                    getArray[i] = getArray[j];
+                    getArray[j] = temp;
                 }
             }
-
         }
-        for(int n : array){
-            System.out.println(n);
+        if (flag) {
+            for (int n : getArray) {
+                System.out.println(n);
+            }
+        } else {
+            for (int reverse = getArray.length-1; reverse >= 0; reverse--) {
+                System.out.println(getArray[reverse]);
+            }
         }
     }
 }
